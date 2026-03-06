@@ -4,7 +4,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyCEWRwiePJzVMMnFI2DIdKHrAwKGbOvyTw")
+genai.configure(api_key="GEMINI_API_KEY")
 model = genai.GenerativeModel("gemini-2.5-flash")
 def process_pdf(file):
     loader = PyPDFLoader(file)
@@ -44,4 +44,5 @@ def ask_question(question):
     response = model.generate_content(prompt)
     
     # Return Gemini's smart explanation instead of raw text
+
     return response.text
